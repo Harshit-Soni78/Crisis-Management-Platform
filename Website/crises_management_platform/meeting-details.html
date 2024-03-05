@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        background-position: center;
+        background-image: url(assets/images/camerabg.jpg);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-left: 120px;
+        height: 100vh;
+    }
+    .login-box {
+        background-color: #fff;
+        opacity: .8;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <form id="loginForm" action="/login" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <label for="ipAddress">IP Address:</label>
+        <input type="text" id="ipAddress" name="ipAddress" placeholder="xxx.xxx.xxx.xxx" required>
+        <input type="submit" value="Login">
+    </form>
+</div>
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // get the name from the form
+        var name = document.getElementsByName("name")[0].value;
+
+        // Get the IP Address from the form
+        var ipAddress = document.getElementById("ipAddress").value;
+
+        // Open a specific IP address upon login
+        openSpecificIPAddress(name, ipAddress);
+    });
+
+    function openSpecificIPAddress(name, ipAddress) {
+        // Check if both name and IP address are provided
+        if (name && ipAddress) {
+            // Build the specific IP address link
+            var specificIPAddressLink = "http://" + ipAddress;
+
+            // Open the specific IP address link in a new tab
+            window.open(specificIPAddressLink, '_blank');
+        } else {
+            // If name or IP address is missing, show an alert
+            alert("Please provide both Name and IP Address before logging in.");
+        }
+    }
+</script>
+
+</body>
+</html>
