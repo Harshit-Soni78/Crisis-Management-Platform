@@ -4,3 +4,5 @@
 
 To view the website, copy the repo into the system, open the crisis_management_platform folder then inedx.html. This will open the webpage on your browser.
 To view the ML Project first run app.py then view in the website.
+
+View Demo Video:- https://youtu.be/yp5Hm-Kilck
