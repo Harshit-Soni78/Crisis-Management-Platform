@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fire Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/crises_management_platform.css') }}">
+</head>
+<body>
+    <div class="container" style="margin-top: 50px;">
+        <h1 style="text-align: center;">Live Fire Detection</h1>
+        <div style="width:80%; margin: 0 auto; text-align: center;">
+            <img src="{{ url_for('video_feed') }}" style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        </div>
+    </div>
+</body>
+</html>
