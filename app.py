@@ -4,7 +4,7 @@ import numpy as np
 from keras.models import load_model
 
 app = Flask(__name__,
-            template_folder="template",
+            template_folder="templates",
             static_folder="static")
 
 # Load the fire detection model
