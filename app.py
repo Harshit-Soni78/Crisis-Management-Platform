@@ -2,12 +2,15 @@ from flask import Flask, render_template, Response
 import cv2
 import numpy as np
 from keras.models import load_model
+from whitenoise import WhiteNoise
 
 app = Flask(__name__,
             template_folder="templates",
             static_folder="static")
 
-# Load the fire detection model
+# Tell WhiteNoise to serve files from the 'static' directory
+app.wsgi_app = WhiteNoise(app.wsgi_app, root="static/")
+
 model = load_model("fire_detection_model.h5")
 
 def preprocess_image(img):
